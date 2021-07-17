@@ -10,16 +10,16 @@ import SwiftUI
 struct TrendingPage: View {
     var body: some View {
         ZStack {
-            GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5))
+            GradientBackground()
             NavigationView {
                 ZStack {
-                    GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5))
+                    GradientBackground()
                     ScrollView {
                         
                     }
                 } .navigationTitle("Trending")
             }
-        } .background(GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5)))
+        } .background(GradientBackground())
     }
 }
 

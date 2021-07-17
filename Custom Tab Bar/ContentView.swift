@@ -16,7 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5))
+            GradientBackground()
             CustomTabBar()
         }
     }

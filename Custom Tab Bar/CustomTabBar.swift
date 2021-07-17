@@ -19,9 +19,11 @@ struct CustomTabBar: View {
     
     @State var roundedTabBar = false
     
+    @State var canChange = true
+    
     var body: some View {
         ZStack {
-            GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5))
+            GradientBackground()
             
             if view1 {
                 withAnimation {
@@ -67,7 +69,9 @@ struct CustomTabBar: View {
                         })
                 }
             }
-        } .overlay(alignment: .bottom, content: {
+        }
+        .background(GradientBackground())
+        .overlay(alignment: .bottom, content: {
             ZStack {
                 
                 Circle()
@@ -79,10 +83,16 @@ struct CustomTabBar: View {
                 
                 HStack {
                     Button {
-                        view1 = true
-                        view2 = false
-                        view3 = false
-                        view4 = false
+                        if canChange {
+                            view1 = true
+                            view2 = false
+                            view3 = false
+                            view4 = false
+                            canChange = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
+                                canChange = true
+                            })
+                        }
                     } label: {
                         VStack {
                             Image(systemName: "house.fill")
@@ -95,10 +105,16 @@ struct CustomTabBar: View {
                             .padding(.horizontal, 12)
                     }
                     Button {
-                        view1 = false
-                        view2 = true
-                        view3 = false
-                        view4 = false
+                        if canChange {
+                            view2 = true
+                            view1 = false
+                            view3 = false
+                            view4 = false
+                            canChange = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
+                                canChange = true
+                            })
+                        }
                     } label: {
                         VStack {
                             Image(systemName: "flame.fill")
@@ -112,10 +128,16 @@ struct CustomTabBar: View {
                         .padding(.horizontal, 12)
                     }
                     Button {
-                        view1 = false
-                        view2 = false
-                        view3 = true
-                        view4 = false
+                        if canChange {
+                            view3 = true
+                            view1 = false
+                            view2 = false
+                            view4 = false
+                            canChange = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
+                                canChange = true
+                            })
+                        }
                     } label: {
                         VStack {
                             Image(systemName: "bell.fill")
@@ -128,10 +150,16 @@ struct CustomTabBar: View {
                             .padding(.horizontal, 12)
                     }
                     Button {
-                        view1 = false
-                        view2 = false
-                        view3 = false
-                        view4 = true
+                        if canChange {
+                            view4 = true
+                            view1 = false
+                            view2 = false
+                            view3 = false
+                            canChange = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
+                                canChange = true
+                            })
+                        }
                     } label: {
                         VStack {
                             Image(systemName: "gear")
