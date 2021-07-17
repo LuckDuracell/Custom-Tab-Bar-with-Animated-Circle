@@ -14,9 +14,12 @@ struct NotificationsPage: View {
             NavigationView {
                 ZStack {
                     GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5))
+                    ScrollView {
+                        
+                    }
                 } .navigationTitle("Notifications")
             }
-        }
+        } .background(GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5)))
     }
 }
 

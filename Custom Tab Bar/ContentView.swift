@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
+    
     var body: some View {
-        CustomTabBar()
+        ZStack {
+            GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5))
+            CustomTabBar()
+        }
     }
 }
 

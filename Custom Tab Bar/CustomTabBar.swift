@@ -15,6 +15,9 @@ struct CustomTabBar: View {
     @State var view4 = false
     
     @State var circlePadding: Double = -155
+    @State var circlePadding2: Double = -135
+    
+    @State var roundedTabBar = false
     
     var body: some View {
         ZStack {
@@ -25,7 +28,8 @@ struct CustomTabBar: View {
                     HomePage()
                         .onAppear {
                             withAnimation {
-                                circlePadding = -155
+                                circlePadding = -133
+                                circlePadding2 = -133
                             }
                         }
                 }
@@ -35,7 +39,8 @@ struct CustomTabBar: View {
                     TrendingPage()
                         .onAppear {
                             withAnimation {
-                                circlePadding = -85.25
+                                circlePadding = -66
+                                circlePadding2 = -66
                             }
                         }
                 }
@@ -45,17 +50,19 @@ struct CustomTabBar: View {
                     NotificationsPage()
                         .onAppear(perform: {
                             withAnimation {
-                                circlePadding = 75.25
+                                circlePadding = 63
+                                circlePadding2 = 63
                             }
                         })
                 }
             }
             if view4 {
                 withAnimation {
-                    SettingsPage()
+                    SettingsPage(roundedTabBar: $roundedTabBar)
                         .onAppear(perform: {
                             withAnimation {
-                                circlePadding = 255
+                                circlePadding = 228
+                                circlePadding2 = 228
                             }
                         })
                 }
@@ -65,11 +72,10 @@ struct CustomTabBar: View {
                 
                 Circle()
                     .padding(.top, 10)
-                    .frame(width: 50, height: 50, alignment: .center)
-                    .padding(.leading, circlePadding)
+                    .frame(width: 60, height: 60, alignment: .center)
+                    .padding(.leading, roundedTabBar ? (view1||view2 ? circlePadding2 - 20 : circlePadding2) : (view1||view2 ? circlePadding - 20 : circlePadding))
                     .foregroundColor(.pink)
                     .animation(.easeOut, value: 1)
-                
                 
                 HStack {
                     Button {
@@ -84,9 +90,9 @@ struct CustomTabBar: View {
                                 .scaledToFit()
                                 .frame(width: 22, height: 22, alignment: .center)
                             Text("Home")
-                                .font(.system(size: 15))
+                                .font(.system(size: 10))
                         } .accentColor(view1 ? .pink : Color(.gray))
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 12)
                     }
                     Button {
                         view1 = false
@@ -100,9 +106,10 @@ struct CustomTabBar: View {
                                 .scaledToFit()
                                 .frame(width: 22, height: 22, alignment: .center)
                             Text("Trending")
-                                .font(.system(size: 15))
-                        } .accentColor(view2 ? .pink : Color(.gray))
-                            .padding(.horizontal, 8)
+                                .font(.system(size: 10))
+                        }
+                        .accentColor(view2 ? .pink : Color(.gray))
+                        .padding(.horizontal, 12)
                     }
                     Button {
                         view1 = false
@@ -116,9 +123,9 @@ struct CustomTabBar: View {
                                 .scaledToFit()
                                 .frame(width: 22, height: 22, alignment: .center)
                             Text("Notifications")
-                                .font(.system(size: 15))
+                                .font(.system(size: 10))
                         } .accentColor(view3 ? .pink : Color(.gray))
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 12)
                     }
                     Button {
                         view1 = false
@@ -132,15 +139,29 @@ struct CustomTabBar: View {
                                 .scaledToFit()
                                 .frame(width: 22, height: 22, alignment: .center)
                             Text("Settings")
-                                .font(.system(size: 15))
+                                .font(.system(size: 10))
                         } .accentColor(view4 ? .pink : Color(.gray))
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 12)
                     }
                 }
+                .padding(.bottom, roundedTabBar ? 0 : 30)
                 .edgesIgnoringSafeArea(.all)
-                .frame(width: UIScreen.main.bounds.width, height: 70, alignment: .center)
+                .frame(width: roundedTabBar ? UIScreen.main.bounds.width - 20 : UIScreen.main.bounds.width, height: roundedTabBar ? 70 : 110, alignment: .center)
                 .background(.ultraThinMaterial)
-        }
+                .cornerRadius(roundedTabBar ? 15 : 0)
+                .padding(.bottom, roundedTabBar ? 0 : -40)
+                
+                
+                Rectangle()
+                    .frame(width: 25, height: 7, alignment: .top)
+                    .cornerRadius(5)
+                    .foregroundColor(.pink)
+                    .padding(.bottom, 70)
+                    .padding(.leading, roundedTabBar ? circlePadding2 : circlePadding)
+                
+                
+            }
+            .edgesIgnoringSafeArea(.all)
         })
     }
 }

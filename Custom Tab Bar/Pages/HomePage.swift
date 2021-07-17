@@ -17,6 +17,7 @@ struct HomePage: View {
                     ScrollView {
                         Text("Yoinked the entire tab bar design from @MengTo on Twitter")
                             .padding(.top, 50)
+                            .foregroundColor(.white)
                         HStack {
                             Image("twitterIcon")
                                 .renderingMode(.template)
@@ -34,7 +35,7 @@ struct HomePage: View {
                     } .padding(.horizontal)
                 } .navigationTitle("Home")
             }
-        }
+        } .background(GradientBackground(color1: .pink.opacity(0.8), color2: .purple.opacity(0.5)))
     }
 }
 
