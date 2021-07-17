@@ -13,6 +13,12 @@
 		0A28D1C226A28A260002455F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A28D1C126A28A260002455F /* Preview Assets.xcassets */; };
 		0A28D1CC26A28A260002455F /* Custom_Tab_BarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1CB26A28A260002455F /* Custom_Tab_BarTests.swift */; };
 		0A28D1D626A28A260002455F /* Custom_Tab_BarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1D526A28A260002455F /* Custom_Tab_BarUITests.swift */; };
+		0A28D1E326A28A320002455F /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1E226A28A320002455F /* HomePage.swift */; };
+		0A28D1E526A28A430002455F /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1E426A28A430002455F /* SettingsPage.swift */; };
+		0A28D1E926A28A750002455F /* NotificationsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1E826A28A750002455F /* NotificationsPage.swift */; };
+		0A28D1EB26A28A7F0002455F /* TrendingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1EA26A28A7F0002455F /* TrendingPage.swift */; };
+		0A28D1ED26A28A8D0002455F /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1EC26A28A8D0002455F /* Background.swift */; };
+		0A28D1F026A28C490002455F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28D1EF26A28C490002455F /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,12 @@
 		0A28D1CB26A28A260002455F /* Custom_Tab_BarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Tab_BarTests.swift; sourceTree = "<group>"; };
 		0A28D1D126A28A260002455F /* Custom Tab BarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Custom Tab BarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A28D1D526A28A260002455F /* Custom_Tab_BarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Tab_BarUITests.swift; sourceTree = "<group>"; };
+		0A28D1E226A28A320002455F /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		0A28D1E426A28A430002455F /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		0A28D1E826A28A750002455F /* NotificationsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPage.swift; sourceTree = "<group>"; };
+		0A28D1EA26A28A7F0002455F /* TrendingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingPage.swift; sourceTree = "<group>"; };
+		0A28D1EC26A28A8D0002455F /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		0A28D1EF26A28C490002455F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,9 @@
 			children = (
 				0A28D1BA26A28A250002455F /* Custom_Tab_BarApp.swift */,
 				0A28D1BC26A28A250002455F /* ContentView.swift */,
+				0A28D1EC26A28A8D0002455F /* Background.swift */,
+				0A28D1EF26A28C490002455F /* CustomTabBar.swift */,
+				0A28D1EE26A28A950002455F /* Pages */,
 				0A28D1BE26A28A260002455F /* Assets.xcassets */,
 				0A28D1C026A28A260002455F /* Preview Content */,
 			);
@@ -122,6 +137,17 @@
 				0A28D1D526A28A260002455F /* Custom_Tab_BarUITests.swift */,
 			);
 			path = "Custom Tab BarUITests";
+			sourceTree = "<group>";
+		};
+		0A28D1EE26A28A950002455F /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				0A28D1E226A28A320002455F /* HomePage.swift */,
+				0A28D1EA26A28A7F0002455F /* TrendingPage.swift */,
+				0A28D1E826A28A750002455F /* NotificationsPage.swift */,
+				0A28D1E426A28A430002455F /* SettingsPage.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +281,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A28D1BD26A28A250002455F /* ContentView.swift in Sources */,
+				0A28D1ED26A28A8D0002455F /* Background.swift in Sources */,
+				0A28D1E326A28A320002455F /* HomePage.swift in Sources */,
 				0A28D1BB26A28A250002455F /* Custom_Tab_BarApp.swift in Sources */,
+				0A28D1F026A28C490002455F /* CustomTabBar.swift in Sources */,
+				0A28D1EB26A28A7F0002455F /* TrendingPage.swift in Sources */,
+				0A28D1E526A28A430002455F /* SettingsPage.swift in Sources */,
+				0A28D1E926A28A750002455F /* NotificationsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +485,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
