@@ -17,6 +17,8 @@ struct UniqueTabBar: View {
     
     @State var circleX: Float = 55
     
+    @State var delayViews = false
+    
     var body: some View {
         ZStack {
             //Views
@@ -42,25 +44,32 @@ struct UniqueTabBar: View {
                     HStack {
                         ForEach(views.indices, content: { index in
                             Button {
-                                shownView = [false, false, false, false]
-                                shownView[index] = true
-                                switch index {
-                                case 0:
-                                    withAnimation {
-                                        circleX = 55
+                                
+                                if delayViews == false {
+                                    shownView = [false, false, false, false]
+                                    shownView[index] = true
+                                    switch index {
+                                    case 0:
+                                        withAnimation {
+                                            circleX = 55
+                                        }
+                                    case 1:
+                                        withAnimation {
+                                            circleX = 142.5
+                                        }
+                                    case 2:
+                                        withAnimation {
+                                            circleX = 230
+                                        }
+                                    default:
+                                        withAnimation {
+                                            circleX = 318
+                                        }
                                     }
-                                case 1:
-                                    withAnimation {
-                                        circleX = 142.5
-                                    }
-                                case 2:
-                                    withAnimation {
-                                        circleX = 230
-                                    }
-                                default:
-                                    withAnimation {
-                                        circleX = 320
-                                    }
+                                    delayViews = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+                                        delayViews = false
+                                    })
                                 }
                             } label: {
                                 VStack {
