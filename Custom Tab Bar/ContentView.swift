@@ -13,11 +13,13 @@ struct ContentView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
+    @State var views = [viewLabel(icon: "house.fill", name: "Home"), viewLabel(icon: "flame.fill", name: "Trending"), viewLabel(icon: "bell.fill", name: "Notifications"), viewLabel(icon: "gear", name: "Settings")]
     
     var body: some View {
         ZStack {
             GradientBackground()
-            CustomTabBar()
+            //CustomTabBar()
+            UniqueTabBar(views: $views)
         }
     }
 }
