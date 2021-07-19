@@ -13,7 +13,7 @@ struct UniqueTabBar: View {
     
     @State var shownView = [true, false, false, false]
     
-    @State var roundedTabBar = false
+    @State var roundedTabBar = true
     
     @State var circleX: Float = 55
     
