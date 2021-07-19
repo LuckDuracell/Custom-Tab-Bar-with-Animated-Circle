@@ -21,13 +21,15 @@ struct CustomTabBar: View {
     
     @State var canChange = true
     
+    @State var hideTabBar = 0.865
+    
     var body: some View {
         ZStack {
             GradientBackground()
             
             if view1 {
                 withAnimation {
-                    HomePage()
+                    HomePage(hideTabBar: $hideTabBar)
                         .onAppear {
                             withAnimation {
                                 circlePadding = -133

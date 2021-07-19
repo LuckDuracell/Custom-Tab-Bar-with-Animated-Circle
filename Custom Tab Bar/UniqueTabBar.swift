@@ -19,12 +19,14 @@ struct UniqueTabBar: View {
     
     @State var delayViews = false
     
+    @State var hideTabBar = 0.865
+    
     var body: some View {
         ZStack {
             //Views
             GradientBackground()
             if shownView[0] {
-                HomePage()
+                HomePage(hideTabBar: $hideTabBar)
             } else if shownView[1] {
                 TrendingPage()
             } else if shownView[2] {
@@ -92,12 +94,13 @@ struct UniqueTabBar: View {
                     
                     
                     Rectangle()
-                        .frame(width: 40, height: 8)
+                        .frame(width: 40, height: 4)
                         .foregroundColor(.pink)
                         .cornerRadius(10)
-                        .offset(x: CGFloat(circleX-186), y: -40)
+                        .offset(x: CGFloat(circleX-186), y: -35)
                     
-                } .position(x: (UIScreen.main.bounds.width/2), y: (UIScreen.main.bounds.height * 0.865))
+                } .position(x: (UIScreen.main.bounds.width/2), y: (UIScreen.main.bounds.height * hideTabBar))
+                .animation(.easeIn, value: 1)
             )
     }
 }
