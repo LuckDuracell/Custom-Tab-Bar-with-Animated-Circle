@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomePage: View {
     
-    @State private var offset = CGFloat.zero
     @Binding var hideTabBar: Double
     
     var body: some View {

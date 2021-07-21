@@ -28,11 +28,11 @@ struct UniqueTabBar: View {
             if shownView[0] {
                 HomePage(hideTabBar: $hideTabBar)
             } else if shownView[1] {
-                TrendingPage()
+                TrendingPage(hideTabBar: $hideTabBar)
             } else if shownView[2] {
-                NotificationsPage()
+                NotificationsPage(hideTabBar: $hideTabBar)
             } else {
-                SettingsPage(roundedTabBar: $roundedTabBar)
+                SettingsPage(roundedTabBar: $roundedTabBar, hideTabBar: $hideTabBar)
             }
         } .edgesIgnoringSafeArea(.all)
             .overlay (

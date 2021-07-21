@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NotificationsPage: View {
+    
+    @Binding var hideTabBar: Double
+    
     var body: some View {
         ZStack {
             GradientBackground()
@@ -15,16 +18,32 @@ struct NotificationsPage: View {
                 ZStack {
                     GradientBackground()
                     ScrollView {
-                        
+                        VStack {
+                            Text("Notifications Page")
+                                .padding()
+                                .padding(.bottom, 1000)
+                            Text("Fun Text for Testing Tab Bar Hider")
+                        }
+                        .frame(width: UIScreen.main.bounds.width)
+                        .background(GeometryReader {
+                            Color.clear.preference(key: ViewOffsetKey.self,
+                            value: -$0.frame(in: .named("scroll")).origin.y)
+                        })
+                        .onPreferenceChange(ViewOffsetKey.self) {
+                            if $0 > 0.0 {
+                                withAnimation {
+                                    hideTabBar = 1
+                                }
+                            } else {
+                                withAnimation {
+                                    hideTabBar = 0.865
+                                }
+                            }
+                        }
                     }
+                    .frame(width: UIScreen.main.bounds.width)
                 } .navigationTitle("Notifications")
             }
         } .background(GradientBackground())
-    }
-}
-
-struct NotificationsPage_Previews: PreviewProvider {
-    static var previews: some View {
-        NotificationsPage()
     }
 }
